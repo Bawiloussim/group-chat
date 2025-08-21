@@ -1,17 +1,21 @@
-import { useState  } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import AuthPage from './pages/AuthPage';
+import ChatPage from './pages/ChatPage';
+import { SocketProvider } from './context/SocketContext';
 
-
-export default function App(){
-  const [user, setUser] = useState(null)
-
-  return(
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={user ? <Home user={user}/>: <Login setUser={setUser}/>} />
-      </Routes>
-    </BrowserRouter>
-  )
+function App() {
+    return (
+        <SocketProvider>
+        <Router>
+            <Routes>
+            <Route path="/" element={<AuthPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            </Routes>
+        </Router>
+        </SocketProvider>
+    );
 }
+
+export default App;

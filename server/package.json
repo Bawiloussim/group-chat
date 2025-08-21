@@ -1,24 +1,19 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.12.4",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0",
-    "mongoose": "^8.16.4",
-    "socket.io": "^4.8.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+    "name": "server",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "backup": "node scripts/backup-db.js",
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.1",
+        "express": "^5.1.0",
+        "mongoose": "^8.16.5",
+        "nodemon": "^3.1.10",
+        "socket.io": "^4.8.1"
+    }
 }
