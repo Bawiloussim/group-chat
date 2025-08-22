@@ -21,7 +21,10 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin: [
+      "http://localhost:5173",
+      "https://group-chat-gilt.vercel.app"
+    ],
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -29,7 +32,10 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: [
+    "http://localhost:5173",
+    "https://group-chat-gilt.vercel.app"
+  ],
   credentials: true,
 }));
 app.use(express.json());
@@ -163,4 +169,4 @@ server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-module.exports = { app, server, io }; 
+module.exports = { app, server, io };
